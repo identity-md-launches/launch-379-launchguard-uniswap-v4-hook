@@ -1,0 +1,62 @@
+{
+  "status": "simulated_not_broadcast",
+  "chainId": 11155111,
+  "checkedAt": "2026-09-27",
+  "reasonNotBroadcast": "No funded Sepolia signer was supplied. No transaction was submitted.",
+  "poolManager": "0xE03A1074c86CFeDd5C142C4F04F1a1536e203543",
+  "poolManagerObservedRuntimeBytes": 24009,
+  "compiler": {
+    "version": "0.8.26",
+    "evmVersion": "cancun",
+    "optimizerRuns": 200,
+    "viaIR": true,
+    "bytecodeHash": "none"
+  },
+  "create2": {
+    "proxy": "0x4e59b44847b379578588920cA78FbF26c0B4956C",
+    "deployerSalt": "0x8addbd9528d9e0398efc5014c7cb4ae26c268396baa6f223de95030095a96763",
+    "deployerCandidate": "0x61991b4DEB3dD7cE70e4F95179cFa0E54fDC8cE0",
+    "hookInitCodeHash": "0xbb1eaeb20cb812976ad036a79104b872f1aec9d9156a57c8ac7759610fea69fa",
+    "hookSalt": "0x0000000000000000000000000000000000000000000000000000000000009c75",
+    "hookCandidate": "0x3b605700BA467BE757db2007756b37C2d2ea60cC",
+    "routerCandidate": "0x3120Ac6553Abe3e1877a157a3Eb75c882198EFB2",
+    "allHookBitsMask": "0x3fff",
+    "requiredPermissions": "0x20cc"
+  },
+  "parameters": {
+    "launchTokenName": "LaunchGuard",
+    "launchTokenSymbol": "GUARD",
+    "launchTokenDecimals": 18,
+    "launchTokenSupply": "1000000000000000000000000000",
+    "quoteToken": "DemoQuote (valueless testnet dUSD)",
+    "feeFlag": 8388608,
+    "tickSpacing": 60,
+    "sqrtPriceX96": "79228162514264337593543950336",
+    "fullRangeLiquidity": "1000000000000000000000000",
+    "maxSeedAmount0": "1000000000000000000000000",
+    "maxSeedAmount1": "1000000000000000000000000",
+    "windowBlocks": 100,
+    "startFeeMillionths": 500000,
+    "normalFeeMillionths": 10000,
+    "maxBuyBasisPoints": 50,
+    "maxAddressBasisPoints": 100
+  },
+  "simulation": {
+    "result": "SIMULATION COMPLETE",
+    "broadcast": false,
+    "operator": "0x000000000000000000000000000000000000bEEF",
+    "operatorIsPlaceholder": true,
+    "estimatedTotalGas": 9447624,
+    "candidateMatchesOfflineMining": true,
+    "command": "forge script script/DeploySepolia.s.sol:DeploySepolia --sig 'run(address)' 0x000000000000000000000000000000000000bEEF --sender 0x000000000000000000000000000000000000bEEF --rpc-url https://ethereum-sepolia-rpc.publicnode.com --slow"
+  },
+  "liveDeployment": {
+    "hook": null,
+    "router": null,
+    "token": null,
+    "quote": null,
+    "poolId": null,
+    "initializationBlock": null,
+    "transactionHashes": []
+  }
+}
