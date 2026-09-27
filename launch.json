@@ -1,0 +1,24 @@
+{
+  "kind": "evm_project",
+  "token": {
+    "contract": "LaunchToken",
+    "name": "LaunchGuard",
+    "symbol": "GUARD",
+    "decimals": 18
+  },
+  "contracts": [
+    {
+      "contract": "LaunchGuard",
+      "constructorArgs": [
+        "0xe03a1074c86cfedd5c142c4f04f1a1536e203543"
+      ]
+    }
+  ],
+  "pool": {
+    "pairedCurrency": "0x0000000000000000000000000000000000000000",
+    "fee": 3000,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "notes": "LaunchToken is the constructor-only LaunchGuard/GUARD token in src/LaunchToken.sol. LaunchGuard takes the Sepolia Uniswap v4 PoolManager address as its sole constructor argument and creates its own immutable LaunchRouter; no separate router or deployer deployment is needed. These contracts have no owner or owner withdrawal. The hook constructor requires (uint160(address) & 0x3fff) == 0x20cc, so the deployment factory must mine a CREATE2 salt for its own address, the accepted creation code and this manager argument. The demo's mined salt/address cannot be reused as a factory deployment prediction. No initialization calls are specified. The manifest pool is an ordinary unhooked native-ETH pool with a 0.3% fee; LaunchGuard protections do not apply to it. A separate guarded ERC-20/ERC-20 pool requires creator funding and the hook's atomic initialize-and-seed call with the dynamic-fee flag. Its immutable settings allow a 1-300 block window, a 1-50% starting buy fee and per-swap/per-address limits measured against the actual initial token deposit. Guarded buys use the constructor-created router, reject the first block, allow one buy per address per block and linearly reduce the effective fee to 1%; surplus charges are donated to pool LPs. Sells use the normal 1% LP fee from the start; after the window, buy restrictions and surplus charges end. Both exact-input and exact-output swaps are supported. Core protocol fees must be zero for guarded buys; sells and post-window trades can also incur governance-configured protocol fees. Snipers can split across addresses; liquidity is not locked and unrelated pools are unaffected. The accepted Sepolia record documents simulation only, with no broadcast receipts or live demo pool. These notes describe deployment requirements and existing behavior, not additional deployment authority."
+}
